@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "137392565735",
+    "project_id": "huarazdpa202502",
+    "storage_bucket": "huarazdpa202502.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:137392565735:android:39d99da5406c9256f1e142",
+        "android_client_info": {
+          "package_name": "dev.equipo.a23100081practicacalificada01"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgslW-Hw2qaS-LknDcPFsoa4pynfLYe2o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:137392565735:android:5641c31910747391f1e142",
+        "android_client_info": {
+          "package_name": "dev.luischang.appdpa"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgslW-Hw2qaS-LknDcPFsoa4pynfLYe2o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
