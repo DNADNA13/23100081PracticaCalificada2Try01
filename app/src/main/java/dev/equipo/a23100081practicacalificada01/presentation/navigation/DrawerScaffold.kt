@@ -51,6 +51,30 @@ fun DrawerScaffold (navController:NavController, content: @Composable ()-> Unit)
                         scope.launch { drawerState.close() }
                     }
                 )
+                NavigationDrawerItem(
+                    label =  { Text("Login")},
+                    selected = false,
+                    onClick = {
+                        navController.navigate("login")
+                        scope.launch { drawerState.close() }
+                    }
+                )
+                NavigationDrawerItem(
+                    label =  { Text("Api Movies")},
+                    selected = false,
+                    onClick = {
+                        navController.navigate("movies")
+                        scope.launch { drawerState.close() }
+                    }
+                )
+                NavigationDrawerItem(
+                    label =  { Text("Gemini chat")},
+                    selected = false,
+                    onClick = {
+                        navController.navigate("chat")
+                        scope.launch { drawerState.close() }
+                    }
+                )
 
             }
 
@@ -59,7 +83,7 @@ fun DrawerScaffold (navController:NavController, content: @Composable ()-> Unit)
         Scaffold (
             topBar = {
                 TopAppBar(
-                    title = { Text("Pc01") },
+                    title = { Text("Pc02") },
                     navigationIcon = {
                         IconButton(onClick = {
                             scope.launch { drawerState.open() }

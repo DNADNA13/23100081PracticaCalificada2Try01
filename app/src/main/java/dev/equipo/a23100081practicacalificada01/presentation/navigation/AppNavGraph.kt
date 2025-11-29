@@ -10,6 +10,7 @@ import com.google.firebase.auth.FirebaseAuth
 import dev.equipo.a23100081practicacalificada01.presentation.Apimovies.ApiMoviesScreen
 import dev.equipo.a23100081practicacalificada01.presentation.auth.LoginScreen
 import dev.equipo.a23100081practicacalificada01.presentation.auth.RegisterScreen
+import dev.equipo.a23100081practicacalificada01.presentation.chat.GeminiChatScreen
 
 import dev.equipo.a23100081practicacalificada01.presentation.home.HomeScreen
 import dev.equipo.a23100081practicacalificada01.presentation.permissions.GalleryPermissionScreen
@@ -21,7 +22,7 @@ fun AppNavGraph (){
     //NavHost(navController=navController, startDestination="login")
     NavHost(
         navController = navController,
-        startDestination = "movies"//if (currentUser == null) "login" else "home"
+        startDestination = if (currentUser == null) "login" else "home"
     )
 
     {
@@ -30,7 +31,7 @@ fun AppNavGraph (){
 
         composable ("home"){
             DrawerScaffold(navController){
-                HomeScreen()
+                ApiMoviesScreen()
             }
         }
         composable ("premissions"){
@@ -46,6 +47,11 @@ fun AppNavGraph (){
         composable ("movies") {
             DrawerScaffold(navController) {
                 ApiMoviesScreen()
+            }
+        }
+        composable ("chat") {
+            DrawerScaffold(navController) {
+                GeminiChatScreen("AIzaSyAnWwywkft6cdKSgqBywXGvy1KqxW37km0")
             }
         }
     }
