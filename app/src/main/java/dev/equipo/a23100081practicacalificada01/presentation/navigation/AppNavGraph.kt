@@ -7,6 +7,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.google.firebase.auth.FirebaseAuth
+import dev.equipo.a23100081practicacalificada01.presentation.Apimovies.ApiMoviesScreen
 import dev.equipo.a23100081practicacalificada01.presentation.auth.LoginScreen
 import dev.equipo.a23100081practicacalificada01.presentation.auth.RegisterScreen
 
@@ -20,7 +21,7 @@ fun AppNavGraph (){
     //NavHost(navController=navController, startDestination="login")
     NavHost(
         navController = navController,
-        startDestination = if (currentUser == null) "login" else "home"
+        startDestination = "movies"//if (currentUser == null) "login" else "home"
     )
 
     {
@@ -40,6 +41,11 @@ fun AppNavGraph (){
         composable("favorites") {
             DrawerScaffold(navController) {
                 Text("Proximamente")
+            }
+        }
+        composable ("movies") {
+            DrawerScaffold(navController) {
+                ApiMoviesScreen()
             }
         }
     }

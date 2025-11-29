@@ -1,3 +1,6 @@
+import java.util.Properties
+//import kotlin.apply
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -5,7 +8,14 @@ plugins {
     id("com.google.gms.google-services") //Firebase
 }
 
+val localProperties = Properties().apply {
+    val file = rootProject.file("local.properties")
+    if(file.exists())
+        load(file.inputStream())
+}
+val apiMovieKey = localProperties.getProperty("API_MOVIE_KEY")?:""
 android {
+
     namespace = "dev.equipo.a23100081practicacalificada01"
     compileSdk = 36
 
@@ -17,6 +27,9 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        // This is the correct line
+        buildConfigField("String", "API_MOVIE_KEY", "\"$apiMovieKey\"")
+
     }
 
     buildTypes {
@@ -37,6 +50,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 }
 
@@ -53,6 +67,7 @@ dependencies {
     implementation(libs.firebase.firestore) //Firebase
     implementation(libs.firebase.auth) //Firebase
     implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -66,6 +81,13 @@ dependencies {
     implementation("androidx.navigation:navigation-compose:2.9.4")
     //Coil compose
     implementation("io.coil-kt:coil-compose:2.7.0")
-    //Firebase
-    implementation(platform("com.google.firebase:firebase-bom:34.4.0"))
+
+    //Firebase BoM
+    implementation(platform("com.google.firebase:firebase-bom:34.3.0"))
+
+    //Retrofit
+    //implementation("com.squareup.retrofit2:retrofit:3.1.0-SNAPSHOT")
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.9.0")
 }
