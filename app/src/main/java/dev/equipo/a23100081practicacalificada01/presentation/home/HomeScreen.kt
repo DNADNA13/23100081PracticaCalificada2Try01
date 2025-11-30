@@ -22,7 +22,7 @@ fun HomeScreen(navController: NavController) {
         Spacer(modifier = Modifier.height(24.dp))
 
         Button(
-            onClick = { navController.navigate("movies") },
+            onClick = { navController.navigate("BlackJackCreateDeck") },
             modifier = Modifier.fillMaxWidth()
         ) {
             Text("Ir a Películas")

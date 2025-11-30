@@ -76,6 +76,28 @@ fun DrawerScaffold (navController:NavController, content: @Composable ()-> Unit)
                     }
                 )
 
+                NavigationDrawerItem(
+                    label =  { Text("Pokedex")},
+                    selected = false,
+                    onClick = {
+                        navController.navigate("pokemon")
+                        scope.launch { drawerState.close() }
+                    }
+                )
+
+                NavigationDrawerItem(
+                    label = { Text("BlackJack") },
+                    selected = false, // si quieres puedes manejar selección dinámica
+                    onClick = {
+                        navController.navigate("BlackJackCreateDeck") {
+                            popUpTo("BlackJackCreateDeck") { inclusive = true }
+                        }
+                        scope.launch { drawerState.close() }
+                    }
+                )
+
+
+
             }
 
         }
